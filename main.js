@@ -1,28 +1,22 @@
-class ProgressBlock {
+const CIRCLE_LENGTH = 2 * Math.PI * 90;
+
+class ProgressBlock {    
+    value = 0;
+    isAnimated = false;
+    isHidden = false; 
+
     constructor(rootSelector) {
-        this.progressElement = document.querySelector(rootSelector);
-        this.progressFill = document.querySelector('.progress__circle--fill');
-        this.value = 0;
-        this.isAnimated = false;
-        this.isHidden = false;
-        
-        this.init();
-    }
-    
-    init() {
-        this.updateProgress(this.value);
+        this.progressElement = document.querySelector(rootSelector);     
     }
     
     setValue(value) {
         this.value = value;
         this.updateProgress(this.value);
-        return this;
     }
     
     updateProgress(value) {
-        const circumference = 565.48;
-        const offset = circumference - (value / 100) * circumference;
-        document.querySelector('.progress__circle--fill').style.strokeDashoffset = offset;
+        const offset = CIRCLE_LENGTH - (value / 100) * CIRCLE_LENGTH;
+        this.progressElement.querySelector('.progress__circle--fill').style.strokeDashoffset = offset;
     }
     
     toggleAnimation(enable) {
@@ -32,19 +26,16 @@ class ProgressBlock {
         } else {
             this.progressElement.classList.remove('progress--rotating');
         }
-        return this;
     }
     
     toggleVisibility(hide) {
         this.isHidden = hide;
         this.progressElement.classList.toggle('progress--hidden', hide);
-        return this;
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {    
     const progress = new ProgressBlock('.progress');
-
+    
     const numberInput = document.getElementById('number-input');
     const switchAnimate = document.getElementById('switch-animate');
     const switchHide = document.getElementById('switch-hide');    
@@ -62,4 +53,3 @@ document.addEventListener('DOMContentLoaded', function() {
     switchHide.addEventListener('change', function() {
         progress.toggleVisibility(this.checked);
     });
-});
