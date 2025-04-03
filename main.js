@@ -37,7 +37,7 @@ class ProgressBlock {
     
     toggleVisibility(hide) {
         this.isHidden = hide;
-        this.progressElement.classList.toggle('visually-hidden', hide);
+        this.progressElement.classList.toggle('progress--hidden', hide);
         return this;
     }
 }
