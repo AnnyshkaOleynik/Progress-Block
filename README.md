@@ -35,9 +35,9 @@ Progress Block для мобильных web-приложений
 В режиме Hidden блок становится прозрачным.
 4. API управления
 Компонент предоставляет методы:
-* progress.setValue(value);   // Устанавливает прогресс (0–100)  
-* progress.setAnimated(true); // Включает анимацию  
-* progress.setHidden(true);   // Скрывает блок  
+   * progress.setValue(value);   // Устанавливает прогресс (0–100)  
+   * progress.setAnimated(true); // Включает анимацию  
+   * progress.setHidden(true);   // Скрывает блок  
 
 Приложение включает:
 - Текстовый ввод для Value (валидация 0–100).
