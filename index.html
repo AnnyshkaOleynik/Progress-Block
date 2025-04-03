@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Block</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./main.js"></script>
+</head>
+<body>
+    <main class="container">
+        <header class="header">
+            <p>Progress</p>
+        </header>
+
+        <div class="flex-container">
+            <div class="progress">
+                <svg class="progress__circle" viewBox="0 0 200 200">
+                    <circle class="progress__circle--bg" cx="100" cy="100" r="90"></circle>
+                    <circle class="progress__circle--fill" cx="100" cy="100" r="90"></circle>
+                </svg>
+            </div>
+            <ul class="controls">
+                <li class="controls__group">   
+                    <input 
+                        class="controls__input-number"
+                        type="number"
+                        id="number-input"
+                        min="0" max="100"
+                        value="0"
+                    >                                     
+                    <label class="controls__label" for="number-input">Value</label>
+                </li>
+                <li class="controls__group">                    
+                    <input class="checkbox visually-hidden" type="checkbox" id="switch-animate"/>
+                    <label class="controls__label" for="switch-animate">Animate</label>
+                </li>
+                <li class="controls__group">                    
+                    <input class="checkbox visually-hidden" type="checkbox" id="switch-hide"/>
+                    <label class="controls__label" for="switch-hide">Hide</label>
+                </li>
+            </ul>
+        </div>        
+    </main>    
+</body>
+</html>
