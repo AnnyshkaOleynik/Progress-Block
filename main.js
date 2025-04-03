@@ -4,6 +4,7 @@ class ProgressBlock {
     value = 0;
     isAnimated = false;
     isHidden = false; 
+    circleFillElement = document.querySelector('.progress__circle--fill')
 
     constructor(rootSelector) {
         this.progressElement = document.querySelector(rootSelector);     
@@ -16,7 +17,7 @@ class ProgressBlock {
     
     updateProgress(value) {
         const offset = CIRCLE_LENGTH - (value / 100) * CIRCLE_LENGTH;
-        this.progressElement.querySelector('.progress__circle--fill').style.strokeDashoffset = offset;
+        this.circleFillElement.style.strokeDashoffset = offset;
     }
     
     toggleAnimation(enable) {
@@ -34,8 +35,8 @@ class ProgressBlock {
     }
 }
 
-    const progress = new ProgressBlock('.progress');
-    
+function main () {
+    const progress = new ProgressBlock('.progress');    
     const numberInput = document.getElementById('number-input');
     const switchAnimate = document.getElementById('switch-animate');
     const switchHide = document.getElementById('switch-hide');    
@@ -53,3 +54,6 @@ class ProgressBlock {
     switchHide.addEventListener('change', function() {
         progress.toggleVisibility(this.checked);
     });
+}
+    
+main()
